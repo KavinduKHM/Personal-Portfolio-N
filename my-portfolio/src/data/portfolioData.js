@@ -22,7 +22,7 @@ export const portfolioData = {
         "Developed a native Android app to help users build healthier routines through habit tracking, mood logging, and hydration monitoring.",
         "Implemented reminders/notifications, achievement progress, and a home-screen widget with a clean Material-style UI and local persistence."
       ],
-      technologies: ["Kotlin", "Gradle ", "Node.js", "MongoDB", "Stripe"],
+      technologies: ["Kotlin", "Gradle ", "Java", "AndroidX", "GitHub"],
       image: "https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=E-Commerce+Platform",
       liveLink: "https://example.com/project1",
       githubLink: "https://github.com/yourusername/project1",
