@@ -45,7 +45,15 @@ const CaseStudy = () => {
 
           <section>
             <h3>My Role & Contribution</h3>
-            <p>{caseStudy.contribution}</p>
+            {Array.isArray(caseStudy.contribution) ? (
+              <ul>
+                {caseStudy.contribution.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{caseStudy.contribution}</p>
+            )}
           </section>
 
           <section>
@@ -67,6 +75,32 @@ const CaseStudy = () => {
               ))}
             </div>
           </section>
+
+          {caseStudy.githubLinks && (
+            <section>
+              <h3>Code Repositories</h3>
+              <div className="case-repos">
+                {caseStudy.githubLinks.frontend && (
+                  <a
+                    href={caseStudy.githubLinks.frontend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    COCOSMART Frontend
+                  </a>
+                )}
+                {caseStudy.githubLinks.backend && (
+                  <a
+                    href={caseStudy.githubLinks.backend}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    COCOSMART Backend
+                  </a>
+                )}
+              </div>
+            </section>
+          )}
 
           <section>
             <h3>Images</h3>

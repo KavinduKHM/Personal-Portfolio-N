@@ -27,7 +27,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <NavLink to="/" className="logo" onClick={() => setIsOpen(false)}>
-          <span className="logo-text">AJ</span>
+          <span className="logo-text">ND</span>
         </NavLink>
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
         {navItems.map((item) => (

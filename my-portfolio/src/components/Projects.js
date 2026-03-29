@@ -5,7 +5,9 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import '../styles/Projects.css';
 
 const Projects = () => {
-  const { projects } = portfolioData;
+  const projects = portfolioData && Array.isArray(portfolioData.projects)
+    ? portfolioData.projects
+    : [];
   const [filter, setFilter] = useState('all');
 
   const technologies = ['all', ...new Set(projects.flatMap(p => p.technologies))];

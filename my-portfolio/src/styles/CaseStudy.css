@@ -46,6 +46,22 @@
   gap: 0.5rem;
 }
 
+.case-repos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.case-repos a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.case-repos a:hover {
+  text-decoration: underline;
+}
+
 .case-images {
   display: grid;
   grid-template-columns: 1fr;
