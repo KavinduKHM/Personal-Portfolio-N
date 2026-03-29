@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+.app {
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Page layout for routed views */
+.about,
+.projects,
+.resume,
+.contact {
+  padding: 120px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about h2,
+.projects h2,
+.resume h2,
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+}
+
+.about h2::after,
+.projects h2::after,
+.resume h2::after,
+.contact h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+}
+
+section h2:after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1a1a2e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .card,
+body.dark-mode .project-card,
+body.dark-mode .contact-form,
+body.dark-mode .resume-card {
+  background: #16213e;
+  color: #f0f0f0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about,
+  .projects,
+  .resume,
+  .contact {
+    padding: 100px 16px 60px;
+  }
+
+  .about h2,
+  .projects h2,
+  .resume h2,
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  section {
+    padding: 60px 16px;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #667eea;
+  padding: 12px 32px;
+  border: 2px solid #667eea;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #667eea;
+  color: white;
+}
