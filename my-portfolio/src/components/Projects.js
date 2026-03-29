@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { portfolioData } from '../data/portfolioData';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import '../styles/Projects.css';
@@ -35,9 +36,9 @@ const Projects = () => {
             <div className="project-image">
               <img src={project.image} alt={project.title} />
               <div className="project-overlay">
-                <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                  <FaExternalLinkAlt /> Live Demo
-                </a>
+                <Link to={`/case-study/${project.id}`} className="case-study-link">
+                  <FaExternalLinkAlt /> Case Study
+                </Link>
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                   <FaGithub /> Code
                 </a>
@@ -46,7 +47,15 @@ const Projects = () => {
             <div className="project-info">
               <h3>{project.title}</h3>
               <p className="project-role">{project.role}</p>
-              <p className="project-description">{project.description}</p>
+              {Array.isArray(project.description) ? (
+                <ul className="project-description">
+                  {project.description.map((line, idx) => (
+                    <li key={idx}>{line}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="project-description">{project.description}</p>
+              )}
               <div className="project-tech">
                 {project.technologies.map(tech => (
                   <span key={tech} className="tech-tag">{tech}</span>
