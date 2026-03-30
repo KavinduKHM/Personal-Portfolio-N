@@ -2,7 +2,7 @@ export const portfolioData = {
   personal: {
     name: "Nilumi Dakshika",
     headline: "Full-Stack Developer",
-    bio: "I'm a passionate developer with 5+ years of experience building web applications that solve real problems. I love creating clean, responsive, and user-friendly interfaces. When I'm not coding, I'm probably playing chess or hiking.",
+    bio: "I'm an Information Technology undergraduate with a strong academic foundation and an insatiable curiosity for how things work under the hood. I don't just write code, I engineer solutions that are efficient, scalable, and user-focused. Every project is an opportunity to apply theoretical concepts to real challenges, and I embrace new technologies with enthusiasm rather than hesitation. As a natural collaborator, I believe the best software emerges from teams that communicate openly and push each other to improve. My goal? To grow into a software developer who doesn't just ship features, but delivers genuine value.",
     uniqueFact: "🏔️ I climbed Mount Kilimanjaro in 2022",
     email: "nilumi.dakshika@gmail.com",
     phone: "+1 (555) 123-4567",

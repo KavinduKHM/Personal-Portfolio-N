@@ -14,8 +14,8 @@ const Hero = () => {
           <h1 className="greeting">Hi, I'm <span className="name">{name}</span></h1>
           <h2 className="headline">{headline}</h2>
           <p className="description">
-            I craft beautiful digital experiences that solve real problems.
-            Let's build something amazing together.
+            Turning complex problems into seamless digital experiences.
+             Beautiful by design. Powerful by function. Let's build the future together.
           </p>
           <div className="hero-buttons">
             <button 
