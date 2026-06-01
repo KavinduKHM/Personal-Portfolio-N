@@ -37,14 +37,6 @@ const Projects = () => {
           <div key={project.id} className="project-card">
             <div className="project-image">
               <img src={project.image} alt={project.title} />
-              <div className="project-overlay">
-                <Link to={`/case-study/${project.id}`} className="case-study-link">
-                  <FaExternalLinkAlt /> Case Study
-                </Link>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                  <FaGithub /> Code
-                </a>
-              </div>
             </div>
             <div className="project-info">
               <h3>{project.title}</h3>
@@ -62,6 +54,15 @@ const Projects = () => {
                 {project.technologies.map(tech => (
                   <span key={tech} className="tech-tag">{tech}</span>
                 ))}
+              </div>
+              <br></br>
+              <div className="project-links">
+                <Link to={`/case-study/${project.id}`} className="case-study-link">
+                  <FaExternalLinkAlt /> Case Study
+                </Link>
+                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                  <FaGithub /> Code
+                </a>
               </div>
             </div>
           </div>

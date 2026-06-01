@@ -15,23 +15,29 @@ const Resume = () => {
       'JAVA',
       'PHP',
       'Node.js',
+      'JavaScript (ES6+)',
       'Express.js',
       'SQL',
-      'C++ '
+      'C++'
 
     ]
     },
     {
     category: 'Frontend Development',
     items: [
-      'React with hooks and reusable component architecture',
-      'Responsive layouts with modern CSS and Tailwind CSS',
+      'React.js',
+      'Next.js',
+      'HTML5 & modern CSS',
+      'Tailwind CSS',
+      'Bootstrap',
       'API integration, error handling and loading states'
     ]
     },
     {
     category: 'Technologies',
     items: [
+      'MERN Stack',
+      'Spring Boot',
       'JavaScript (ES6+), TypeScript (basics)',
       'Git & GitHub workflows (branches, PRs, reviews)',
       'Basic cloud/deployment exposure (Netlify, Render, etc.)'
@@ -40,31 +46,41 @@ const Resume = () => {
     {
     category: 'Mobile App Development',
     items: [
-      'Native Android apps with Kotlin/Java',
-      'Android Jetpack (navigation, ViewModel, Room)',
+      'Kotlin, Java (Native Android)',
+      'Android Studio',
+      'Android Jetpack (Navigation, ViewModel, Room)',
       'Background work and notifications with WorkManager'
     ]
     },
     {
     category: 'QA Testing',
     items: [
-      'Writing and executing manual test cases',
-      'Basic automated testing for web apps',
+      'Postman',
+      'SDLC & Test Case writing',
+      'Manual and basic automated testing',
+      'Performance testing',
       'Debugging and tracking issues using GitHub Issues'
     ]
     },
     {
     category: 'Soft Skills',
     items: [
-      'Collaborative team player with clear communication',
-      'Fast learner with strong ownership mindset',
-      'Experience working in project-based academic and personal teams'
+      'Leadership',
+      'Team Work',
+      'Project Management',
+      'Critical Thinking',
+      'Communication',
+      'Problem Solving',
+      'Adaptability',
+      'Quick Learning',
+      'Experimenting'
     ]
     },
     {
     category: 'Version Control & Tools',
     items: [
-      'Git, GitHub, Git branching strategies',
+      'Git & GitHub',
+      'Jira',
       'VS Code, Android Studio, Postman',
       'Agile-inspired workflows with task boards and iterations'
     ]

@@ -22,110 +22,123 @@ const CaseStudy = () => {
 
   const { caseStudy } = project;
 
+  // Resolve hero image: support absolute URLs and public-folder relative paths
+  const heroImage = project.image
+    ? (project.image.startsWith('http') ? project.image : `${process.env.PUBLIC_URL}/${project.image}`)
+    : '';
+
   return (
     <div className="case-study">
-      <button className="back-link" onClick={() => navigate(-1)}>
-        
-        Back
-      </button>
+      <div className="case-hero" style={{ backgroundImage: `url(${heroImage})` }}>
+        <div className="case-hero-overlay">
+          <div className="case-hero-inner">
+            <button className="back-link" onClick={() => navigate(-1)}>Back</button>
+            <h1 className="case-title">{project.title}</h1>
+            <p className="case-role">{project.role}</p>
+            <div className="case-hero-ctas">
+              
+              {project.githubLink && (
+                <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-primary">View Code</a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h2>{project.title}</h2>
-      <p className="case-role">{project.role}</p>
-
-      <div className="case-layout">
-        <div className="case-main">
-          <section>
-            <h3>Key Features</h3>
-            <ul>
-              {caseStudy.keyFeatures.map((feature, idx) => (
-                <li key={idx}>{feature}</li>
+      <div className="case-container">
+        <div className="case-layout">
+          <div className="case-main">
+            <section className="case-summary card">
+              <h3>Project Summary</h3>
+              {project.description && project.description.map((p, i) => (
+                <p key={i}>{p}</p>
               ))}
-            </ul>
-          </section>
+              <div className="case-meta">
+                <div><strong>Stack:</strong> {project.technologies.join(', ')}</div>
+              </div>
+            </section>
 
-          <section>
-            <h3>My Role & Contribution</h3>
-            {Array.isArray(caseStudy.contribution) ? (
+            <section className="card">
+              <h3>Key Features</h3>
+              <ul className="features-list">
+                {caseStudy.keyFeatures.map((feature, idx) => (
+                  <li key={idx}>{feature}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="card">
+              <h3>My Role & Contribution</h3>
+              {Array.isArray(caseStudy.contribution) ? (
+                <ul>
+                  {caseStudy.contribution.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{caseStudy.contribution}</p>
+              )}
+            </section>
+
+            <section className="card">
+              <h3>Key Learnings</h3>
               <ul>
-                {caseStudy.contribution.map((item, idx) => (
+                {caseStudy.keyLearnings.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
-            ) : (
-              <p>{caseStudy.contribution}</p>
+            </section>
+          </div>
+
+          <aside className="case-sidebar">
+            <div className="card sticky">
+              <h4>Technologies</h4>
+              <div className="case-tags">
+                {caseStudy.technologiesUsed.map((tech, idx) => (
+                  <span key={idx} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            {caseStudy.githubLinks && (
+              <div className="card">
+                <h4>Code Repositories</h4>
+                <div className="case-repos">
+                  {caseStudy.githubLinks.frontend && (
+                    <a href={caseStudy.githubLinks.frontend} target="_blank" rel="noopener noreferrer">Frontend Repo</a>
+                  )}
+                  {caseStudy.githubLinks.backend && (
+                    <a href={caseStudy.githubLinks.backend} target="_blank" rel="noopener noreferrer">Backend Repo</a>
+                  )}
+                </div>
+              </div>
             )}
-          </section>
 
-          <section>
-            <h3>Key Learnings</h3>
-            <ul>
-              {caseStudy.keyLearnings.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </section>
+            <div className="card">
+              <h4>Screenshots</h4>
+              <div className="case-images">
+                {caseStudy.images.map((src, idx) => (
+                  <img key={idx} src={src} alt={`${project.title} screenshot ${idx + 1}`} />
+                ))}
+              </div>
+            </div>
+
+            {caseStudy.videoUrl && (
+              <div className="card">
+                <h4>Demo Video</h4>
+                <div className="case-video">
+                  <iframe
+                    src={caseStudy.videoUrl}
+                    title={`${project.title} case study video`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            )}
+          </aside>
         </div>
-
-        <aside className="case-sidebar">
-          <section>
-            <h3>Technologies Used</h3>
-            <div className="case-tags">
-              {caseStudy.technologiesUsed.map((tech, idx) => (
-                <span key={idx} className="tech-tag">{tech}</span>
-              ))}
-            </div>
-          </section>
-
-          {caseStudy.githubLinks && (
-            <section>
-              <h3>Code Repositories</h3>
-              <div className="case-repos">
-                {caseStudy.githubLinks.frontend && (
-                  <a
-                    href={caseStudy.githubLinks.frontend}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    COCOSMART Frontend
-                  </a>
-                )}
-                {caseStudy.githubLinks.backend && (
-                  <a
-                    href={caseStudy.githubLinks.backend}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    COCOSMART Backend
-                  </a>
-                )}
-              </div>
-            </section>
-          )}
-
-          <section>
-            <h3>Images</h3>
-            <div className="case-images">
-              {caseStudy.images.map((src, idx) => (
-                <img key={idx} src={src} alt={`${project.title} screenshot ${idx + 1}`} />
-              ))}
-            </div>
-          </section>
-
-          {caseStudy.videoUrl && (
-            <section>
-              <h3>Video</h3>
-              <div className="case-video">
-                <iframe
-                  src={caseStudy.videoUrl}
-                  title={`${project.title} case study video`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </section>
-          )}
-        </aside>
       </div>
     </div>
   );

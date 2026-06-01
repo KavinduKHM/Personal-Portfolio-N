@@ -5,63 +5,145 @@
   justify-content: center;
   padding-top: 80px;
 }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 10% 10%, rgba(102,126,234,0.06), transparent 10%), radial-gradient(ellipse at 90% 80%, rgba(139,92,246,0.04), transparent 15%);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+}
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 460px;
+  gap: 3rem;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.hero-text {
-  animation: fadeInLeft 1s ease;
+.card-glass {
+  animation: fadeInLeft 0.9s ease;
+  padding: 2rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--glass), rgba(255,255,255,0.05));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px) saturate(120%);
 }
 
+.hero-text { }
+
 .greeting {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: #667eea;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  letter-spacing: 0.2px;
 }
 
 .name {
-  font-size: 3.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-size: 2.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.headline {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 1rem 0;
+.headline-creative {
+  font-size: 1.45rem;
+  margin: 0.6rem 0 1rem;
+  color: var(--text);
+  font-weight: 700;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 1.5rem 0;
-  opacity: 0.8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 1rem 0 1.25rem;
+  color: var(--muted);
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
+.hero-actions { display:flex; gap:0.8rem; }
+
+.btn-cta {
+  background: linear-gradient(90deg,var(--accent) 0%,var(--accent-2) 100%);
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(102,126,234,0.12);
 }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hero-socials {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.6rem;
+}
+.hero-socials a { color: var(--muted); font-size:1.05rem; display:inline-flex; align-items:center; justify-content:center; }
+
+.hero-image { animation: fadeInRight 1s ease; }
 
 .hero-image {
   animation: fadeInRight 1s ease;
 }
 
-.image-placeholder svg {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  display: block;
+.image-frame { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+.image-surface svg { width: 100%; display: block; border-radius: 18px; box-shadow: 0 18px 50px rgba(102,126,234,0.06); }
+
+.floating-tags {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 6px 8px;
 }
+
+.floating-tags .tag {
+  background: var(--card-bg);
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.72rem;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  transform-origin: center;
+  color: var(--text);
+  white-space: nowrap;
+  margin: 2px 4px;
+}
+.floating-tags .tag { animation: float 4s ease-in-out infinite; }
+.floating-tags .t-0 { transform: translateY(-4px) rotate(-6deg); animation-delay:0s }
+.floating-tags .t-1 { transform: translateY(0px) rotate(4deg); animation-delay:0.2s }
+.floating-tags .t-2 { transform: translateY(-6px) rotate(-2deg); animation-delay:0.4s }
+.floating-tags .t-3 { transform: translateY(2px) rotate(2deg); animation-delay:0.6s }
+.floating-tags .t-4 { transform: translateY(-2px) rotate(6deg); animation-delay:0.8s }
+.floating-tags .t-5 { transform: translateY(0px) rotate(-3deg); animation-delay:1s }
+
+@keyframes float { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-6px) } }
 
 @keyframes fadeInLeft {
   from {
@@ -102,5 +184,20 @@
 
   .headline {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .floating-tags {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+}
+
+/* Ensure tags don't push outside image on medium/large screens: limit rows visually to 3 */
+@media (min-width: 420px) {
+  .floating-tags {
+    max-height: calc(3 * 34px + 12px); /* approx 3 rows of tags */
   }
 }

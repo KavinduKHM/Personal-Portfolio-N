@@ -3,19 +3,130 @@ export const portfolioData = {
     name: "Nilumi Dakshika",
     headline: "Full-Stack Developer",
     bio: "I'm an Information Technology undergraduate with a strong academic foundation and an insatiable curiosity for how things work under the hood. I don't just write code, I engineer solutions that are efficient, scalable, and user-focused. Every project is an opportunity to apply theoretical concepts to real challenges, and I embrace new technologies with enthusiasm rather than hesitation. As a natural collaborator, I believe the best software emerges from teams that communicate openly and push each other to improve. My goal? To grow into a software developer who doesn't just ship features, but delivers genuine value.",
-    uniqueFact: "🏔️ I climbed Mount Kilimanjaro in 2022",
     email: "nilumi.dakshika@gmail.com",
     phone: "+1 (555) 123-4567",
     location: "San Francisco, CA",
     resumeLink: "/resume.pdf"
   },
   skills: [
-    "React", "Node.js", "Python", "MongoDB", "Express", 
-    "TypeScript", "Tailwind CSS", "GraphQL", "Docker", "AWS"
+    "React", "Node.js", "Python", "MongoDB", "SQL", "Express", 
+    "TypeScript", "Tailwind CSS", "Next.js", "Java", "Kotlin",
   ],
   projects: [
     {
       id: 1,
+      title: "VERTEX - Smart Campus",
+      role: "A full-stack web application for managing campus facilities, bookings, and maintenance workflows.",
+      description: [
+        "Built a full‑stack Smart Campus web application for managing campus resources - bookings, QR check‑in, tickets, and user roles - with a RESTful Java backend and a responsive React frontend.",
+        "Implemented OAuth2 authentication, real‑time notifications, admin user management, file uploads, and SQL migrations, plus a clean Tailwind/Vite UI and API integrations for campus workflows."],
+      technologies: ["Java", "Spring Boot", "Maven", "React", "Vite", "JavaScript (JSX)", "Tailwind CSS", "Node.js", "PostgreSQL / SQL", "OAuth2", "GitHub"],
+      image: "photos/vertex.png",
+      liveLink: "https://example.com/project1",
+      githubLink: "https://github.com/nilumi-d/vertex-smart-campus",
+      caseStudy: {
+        keyFeatures: [
+        "Implemented OAuth2 / token-based authentication and role-based access control (Admin, Technician, HR, User) across backend and frontend",
+        "Built bookings system with calendar view, sequential booking records, QR check‑in flow, and admin approval workflows",
+        "Developed ticketing module for issue reporting and file attachments with server-side upload handling",
+        "Implemented real‑time notification flow and notification dropdowns for user and admin alerts",
+        "Added user management and role administration with profile updates and secure password flows (reset, forgot, OAuth2 flows)",
+        "Created responsive dashboards and analytics views for admins using charts and aggregated metrics",
+        "Enabled report export and SQL migration management for production data (Postgres/SQL scripts)",
+        "Built a centralized API layer (Axios) with auth interceptors, error handling, and token refresh support",
+        "Implemented environment‑aware configuration and local persistence for uploads and application settings"
+        ],
+        technologiesUsed: ["Java", "Spring Boot", "Maven", "React", "Vite", "JavaScript (JSX)", "Tailwind CSS", "Node.js (dev tooling)", "PostgreSQL / SQL", "OAuth2", "Axios", "JWT (token flows)"],
+        
+        contribution: [
+        "Designed and implemented the full‑stack architecture: Spring Boot REST API backend and React + Vite frontend",
+        "Implemented secure authentication and authorization (OAuth2/token flows) and role-based UI routing",
+        "Built booking workflows (create, update, calendar view, QR check‑in) and ticketing with file uploads",
+        "Developed centralized API integration using axios with interceptors for auth and global error handling",
+        "Created admin dashboards, user management screens, and notification components for operational visibility",
+        "Authored SQL migration and seed scripts and integrated file upload handling on the backend",
+        "Improved UX with responsive Tailwind-based UI and reusable React components"
+        ],
+        keyLearnings: [
+        "Designing a maintainable Java + React architecture with clear API boundaries",
+        "Implementing production-ready authentication patterns (OAuth2, token management, refresh flows)",
+        "Translating campus workflows (bookings, QR check‑in, tickets) into robust backend logic and frontend UX",
+        "Building centralized API clients and handling auth/errors consistently across the app",
+        "Balancing responsive UI, accessibility, and state management in a large React codebase",
+        "Managing file uploads and persistence while keeping security and data integrity in mind"
+        ],
+        images: [
+        "https://via.placeholder.com/800x450/0EA5A4/FFFFFF?text=Bookings+Dashboard",
+        "https://via.placeholder.com/800x450/2563EB/FFFFFF?text=QR+Check-In+Flow"
+        ],
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        }
+      },
+    {
+      id: 2,
+      title: "Internship & Job Preparation Platform",
+      role: "Internship & Job Preparation Platform",
+      description: [
+        "Developed a full‑stack Internship & Job Preparation Platform to streamline hiring: company job postings, student applications, AI‑evaluated screening exams, and interview workflows.", 
+        "Implemented identity verification (OCR + in‑browser face detection), exam integrity controls (tab/visibility monitoring, violation logging, auto‑termination), AI scoring with feedback, PDF/report exports, and role‑based dashboards for students, companies, and admins."
+      ],
+      technologies: ["Next.js", "TypeScript", "tRPC", "Prisma (SQLite)", "Tailwind CSS", "face-api.js", "Tesseract.js", "NextAuth.js"],
+      image: "photos/intern3.png",
+      liveLink: "https://example.com/project1",
+      githubLink: "https://github.com/nilumi-d/Internship-and-Job-preparation-platform",
+      caseStudy: {
+        keyFeatures: [
+            "Built AI-evaluated screening flow: question bank → exam submission → automated AI evaluation and pass/fail filtering",
+            "Applicant identity verification using OCR (Tesseract.js) and face checks (face-api.js) before exam access",
+            "Exam integrity controls: tab-switch / fullscreen exit / copy-paste prevention, violation logging and automatic termination",
+            "Role-based access control and multi-role UI (Student, Company, Admin) with protected pages and admin fallbacks",
+            "Job & application management: company job posts, student applications, per-application exam state and results",
+            "Prep-quiz module for candidate practice with attempts tracking and scoring",
+            "Evaluation pipeline with structured results (score, percentage, AI feedback, CV upload gating)",
+            "Prisma data models for full domain (users, companies, jobs, questions, applications, evaluations, violations)",
+            "tRPC-backed API layer with typed procedures and centralized client integration in the frontend",
+            "ID upload + OCR cross-check against registered student record to prevent fraud",
+            "PDF/report utilities and server/client-side helpers (pdf-lib, pdfkit) for exports and reporting",
+            "Email / OTP utilities (nodemailer) and Playwright tests for end-to-end flows (dev tooling)",
+            "Client-side face model assets included in /public/models for in-browser face detection",
+            "Detailed UX: responsive pages, reusable components, and security-first exam UX"
+            ],
+            technologiesUsed: [
+            "Next.js", "TypeScript", "tRPC", "Prisma (SQLite)", "Tailwind CSS", "face-api.js", "Tesseract.js", "NextAuth.js"
+            ],
+            githubLinks: {
+            repository: "https://github.com/nilumi-d/Internship-and-Job-preparation-platform"
+            },
+            contribution: [
+            "Designed the full-stack architecture using the T3-inspired stack (Next.js + tRPC + Prisma) and organized domain modules (Company, Student, Exam, AI Evaluation)",
+            "Modeled complex application state in Prisma: users, companies, jobs, questions, exam answers, violations, and evaluation results",
+            "Implemented secure verification UX: ID upload, OCR extraction, and in-browser face detection with face-api.js",
+            "Built the exam integrity system: client-side guards (tab/visibility monitoring), violation recording, and server-side processing",
+            "Developed the AI evaluation pipeline (server-side procedures) to score exam answers, persist evaluation results, and gate CV upload",
+            "Created modular, typed tRPC procedures and integrated them with the React frontend via a centralized API layer",
+            "Implemented authentication and role-aware routing using NextAuth, session types, and server-side guards",
+            "Authored responsive, reusable UI components and pages (apply flow, company dashboard, admin evaluation tools)",
+            "Added export/reporting utilities (PDF generation) and test scaffolding (Playwright) to support QA and demos"
+            ],
+            keyLearnings: [
+            "Designing maintainable full-stack TypeScript apps with tRPC + Prisma and strong typing across client/server",
+            "Implementing real-time client-side verification (OCR + face detection) and handling media as base64 safely",
+            "Translating exam integrity requirements into concrete UI and backend checks (visibility API, violation types, auto-termination)",
+            "Building an AI-assisted evaluation pipeline that maps free-text answers to structured scores and feedback",
+            "Modeling complex recruitment workflows in Prisma (one-to-many relations, enums, evaluation snapshots, uniqueness constraints)",
+            "Balancing UX and security: clear user flow for verification while avoiding blocking user progress prematurely",
+            "Using Playwright for end-to-end verification and integrating PDF/report generation for operational reporting"
+            ],
+            images: [
+            "https://via.placeholder.com/1200x675/0EA5E9/ffffff?text=Applicant+Verification+Flow",
+            "https://via.placeholder.com/1200x675/8B5CF6/ffffff?text=AI+Evaluation+Results+Dashboard"
+            ],
+            videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+            }
+      },
+    
+    {
+      id: 3,
       title: "DailyWell",
       role: "Wellness & Habit Tracker Mobile App",
       description: [
@@ -23,7 +134,7 @@ export const portfolioData = {
         "Implemented reminders/notifications, achievement progress, and a home-screen widget with a clean Material-style UI and local persistence."
       ],
       technologies: ["Kotlin", "Gradle ", "Java", "AndroidX", "GitHub"],
-      image: "https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=E-Commerce+Platform",
+      image: "photos/dailywell2.png",
       liveLink: "https://example.com/project1",
       githubLink: "https://github.com/nilumi-d/DailyWell",
       caseStudy: {
@@ -54,7 +165,7 @@ export const portfolioData = {
       }
     },
     {
-      id: 2,
+      id: 4,
       title: "TaleGo",
       role: "Reading & Writing Mobile Application",
       description: [
@@ -62,7 +173,7 @@ export const portfolioData = {
         "Designed a multi-screen experience with onboarding, authentication, library/home navigation, profile, and reading/listening flows."
       ],
       technologies: ["Kotlin", "Gradle ", "Java", "AndroidX", "GitHub"],
-      image: "https://via.placeholder.com/600x400/10B981/FFFFFF?text=Task+Management+App",
+      image: "photos/Talego.png",
       liveLink: "https://example.com/project2",
       githubLink: "https://github.com/nilumi-d/TaleGo_Reading_and_Writing_mobile_application",
       caseStudy: {
@@ -94,7 +205,7 @@ export const portfolioData = {
       }
     },
     {
-      id: 3,
+      id: 5,
       title: "CocoSmart",
       role: "Full-Stack Operations & E-Commerce Platform",
       description: [
@@ -102,7 +213,7 @@ export const portfolioData = {
         "Implemented a scalable system with role-based dashboards (Admin, HR, Worker) and secure JWT authentication, enabling seamless coordination between business operations and customer-facing services."
       ],
       technologies: ["React", "Node", "Express", "MongoDB", "Tailwind CSS", "Axios", "Recharts", "Framer Motion", "SweetAlert2", "react-hot-toast", "jsPDF", "html2canvas", "QRCode", "Swiper"],
-      image: "https://via.placeholder.com/600x400/F59E0B/FFFFFF?text=Weather+Dashboard",
+      image: "photos/coco.png",
       liveLink: "https://example.com/project3",
       githubLink: "https://github.com/nilumi-d/cocosmart-frontend",
       caseStudy: {
@@ -149,7 +260,7 @@ export const portfolioData = {
       }
     },
     {
-      id: 4,
+      id: 6,
       title: "Online School Information Management System",
       role: "Full-Stack OOP Project",
       description: [
@@ -157,7 +268,7 @@ export const portfolioData = {
         "Established the project structure and server configuration to support future modules like student/teacher/course management and admin workflows."
       ],
       technologies: ["Java", "Jakarta EE (JSP / Servlets)", "Apache Tomcat 9", "Eclipse WTP (Dynamic Web Project)", "GitHub"],
-      image: "https://via.placeholder.com/600x400/EF4444/FFFFFF?text=Analytics+Dashboard",
+      image: "photos/school.png",
       liveLink: "https://example.com/project4",
       githubLink: "https://github.com/nilumi-d/Online-School-Information-Management-System-OOP-project-",
       caseStudy: {
@@ -216,9 +327,9 @@ export const portfolioData = {
   ],
   education: [
     {
-      degree: "B.S. in Computer Science",
-      institution: "University of Technology",
-      year: "2019",
+      degree: "Bsc(hons) in Information Technology Specialization in Information Technology (Undergraduate)",
+      institution: "SLIIT",
+      year: "2023 - Present",
       gpa: "3.8/4.0"
     }
   ]

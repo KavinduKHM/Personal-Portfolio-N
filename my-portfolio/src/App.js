@@ -12,6 +12,7 @@ import './App.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (darkMode) {
@@ -21,20 +22,40 @@ function App() {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    // show preloader for at least 2000ms (2s) then hide
+    const minDelay = 2000;
+    const t = setTimeout(() => setIsLoading(false), minDelay);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="app">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main>
-    <Routes>
-      <Route path="/" element={<Hero />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/resume" element={<Resume />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/case-study/:id" element={<CaseStudy />} />
-    </Routes>
-      </main>
-      <Footer />
+      {isLoading ? (
+        <div className="preloader-root">
+          <div className="preloader-overlay">
+            <div className="preloader">
+              <div className="preloader-badge">ND</div>
+              <div className="preloader-sub">Nilumi Dakshika</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Hero />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/case-study/:id" element={<CaseStudy />} />
+            </Routes>
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
